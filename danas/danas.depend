@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1357912797 source:c:\users\laís\dropbox\poo\juntando tudo code ver. 2\casa.cpp
+	"Casa.h"
+	<math.h>
+
+1355674420 c:\users\laís\dropbox\poo\juntando tudo code ver. 2\casa.h
+	"Pecas.h"
+
+1355707389 c:\users\laís\dropbox\poo\juntando tudo code ver. 2\pecas.h
+	<iostream>
+
+1189872156 source:c:\users\laís\dropbox\poo\juntando tudo code ver. 2\danas\main.cpp
+	<iostream>
+
+1355678713 source:c:\users\laís\dropbox\poo\juntando tudo code ver. 2\jogo.cpp
+	"jogo.h"
+	<math.h>
+	<iostream>
+
+1355678689 c:\users\laís\dropbox\poo\juntando tudo code ver. 2\jogo.h
+	"Tabuleiro.h"
+
+1355673793 c:\users\laís\dropbox\poo\juntando tudo code ver. 2\tabuleiro.h
+	"Casa.h"
+
+1357912612 source:c:\users\laís\dropbox\poo\juntando tudo code ver. 2\interface.cpp
+	"Interface.h"
+	<iostream>
+	<string>
+	"Casa.h"
+	"Tabuleiro.h"
+
+1355678274 c:\users\laís\dropbox\poo\juntando tudo code ver. 2\interface.h
+	<string>
+	"jogo.h"
+
+1355836382 source:c:\users\laís\dropbox\poo\juntando tudo code ver. 2\peca.cpp
+	"Pecas.h"
+
+1357174521 source:c:\users\laís\dropbox\poo\juntando tudo code ver. 2\tabuleiro.cpp
+	"Tabuleiro.h"
+
+1355948419 source:c:\users\laís\dropbox\poo\juntando tudo code ver. 2\gatilho.cpp
+	<cstdlib>
+	"Interface.h"
+
