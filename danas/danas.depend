@@ -44,3 +44,47 @@
 	<cstdlib>
 	"Interface.h"
 
+1355948419 source:c:\users\casa\dropbox\poo\juntando tudo code ver. 2\gatilho.cpp
+	<cstdlib>
+	"Interface.h"
+
+1355678274 c:\users\casa\dropbox\poo\juntando tudo code ver. 2\interface.h
+	<string>
+	"jogo.h"
+
+1357931238 c:\users\casa\dropbox\poo\juntando tudo code ver. 2\jogo.h
+	"Tabuleiro.h"
+
+1355673793 c:\users\casa\dropbox\poo\juntando tudo code ver. 2\tabuleiro.h
+	"Casa.h"
+
+1357949949 c:\users\casa\dropbox\poo\juntando tudo code ver. 2\casa.h
+	"Pecas.h"
+
+1355707389 c:\users\casa\dropbox\poo\juntando tudo code ver. 2\pecas.h
+	<iostream>
+
+1357949322 source:c:\users\casa\dropbox\poo\juntando tudo code ver. 2\interface.cpp
+	"Interface.h"
+	<iostream>
+	<string>
+	"Casa.h"
+	"Tabuleiro.h"
+	<stdlib.h>
+
+1357174521 source:c:\users\casa\dropbox\poo\juntando tudo code ver. 2\tabuleiro.cpp
+	"Tabuleiro.h"
+
+1357949886 source:c:\users\casa\dropbox\poo\juntando tudo code ver. 2\jogo.cpp
+	"jogo.h"
+	<math.h>
+	<iostream>
+	<stdlib.h>
+
+1355836382 source:c:\users\casa\dropbox\poo\juntando tudo code ver. 2\peca.cpp
+	"Pecas.h"
+
+1357927618 source:c:\users\casa\dropbox\poo\juntando tudo code ver. 2\casa.cpp
+	"Casa.h"
+	<math.h>
+

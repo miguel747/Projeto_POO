@@ -30,7 +30,7 @@ void Casa::SetX(int x){
     this->y=y;
 }
 
-void Casa::SetY(int y){/
+void Casa::SetY(int y){
     this->y=y;
 }
 

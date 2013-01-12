@@ -12,15 +12,16 @@ class jogo
         virtual ~jogo();
 
         /** move pe�a */
-        Tabuleiro move(Casa origem, Casa destino) throw(string);
+        Tabuleiro move(Casa origem, Casa destino) throw(exception);
         Tabuleiro captura(Casa origem,Casa destino) throw(exception);
         Tabuleiro newGame();
 
     //protected:
-    //private:
+    private:
         Tabuleiro *tab; //!< Member variable "tab"
-        bool isDistanciaValida(Casa,Casa,float);
-        bool isDirecaoValida(Casa,Casa);
+        /**/
+        bool ehDistanciaValida(Casa,Casa,float);
+        bool ehDirecaoValida(Casa,Casa);
         bool ehMovimentoValido(Casa,Casa);
         bool ehCapturaValida(Casa origem,Casa destino);
         int calcDirecaoCaptura(Casa origem, Casa destino) throw (exception);

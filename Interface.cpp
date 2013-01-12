@@ -10,6 +10,7 @@
 #include <string>
 #include "Casa.h"
 #include "Tabuleiro.h"
+#include <stdlib.h>
 
 using namespace std;
 
@@ -114,7 +115,13 @@ char Interface::Jogada(Tabuleiro Mesa, string Nome)
     CasaPos.SetX(XPos);
     CasaPos.SetY(YPos);
 
-    Jogo.move(CasaAnt,CasaPos);
+    try{
+        Jogo.move(CasaAnt,CasaPos);
+    }
+    catch(exception e){
+        cout<<"aqui!!!!"<<endl;
+    }
+
 
     //system("cls");
     //se move lançar uma exceção, como fica?
