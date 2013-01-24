@@ -1,11 +1,6 @@
 #include "jogo.h"
 #include <math.h>
-#include <iostream>
-#define pi acos(-1)
-#include <stdlib.h>
-using namespace std;
 
-/* Construtores / Destrutores */
 jogo::jogo()
 {
    tab = NULL;
@@ -17,164 +12,48 @@ jogo::~jogo()
     //dtor
 }
 
-/* Logica interna  */
-bool jogo::ehDistanciaValida(Casa origem, Casa destino,float distValida)
+Tabuleiro jogo::move(int xOrigem,int yOrigem,int xDest,int yDest) throw (exception)
 {
-    if( (int)origem.Distancia(destino) == (int)distValida)
-    {
-        if(destino.GetPedra() != NULL)
-            return true;
-        else
-            return false;
-    }
-    else
-       return false;
-}
+        // Testes de inicialização                                              // Tabuleiro nao foi inicializdo ?? exceção de inicializacão
+        if(tab == NULL)
+            throw exception();
+        // Fim dos testes de inicialização
 
-bool jogo::ehDirecaoValida(Casa origem, Casa destino)
-{
-    try
-    {
-        if(origem.GetPedra() != NULL)
+
+        Casa *origem  = tab->GetDadosCasa(xOrigem,yOrigem);
+        Casa *destino = tab->GetDadosCasa(xDest,yDest);
+
+        //Testes Inicias do movimeto
+        if(origem->GetCor() == true ||                                         // Casas sao brancas ?? exceção de movimento
+           destino->GetCor() == true)
+            throw exception();
+
+        if(origem->GetPedra() == NULL)                                          // Existe peça a ser movida ?? exceção de movimento
+            throw exception();
+
+        if(destino->GetPedra() != NULL)                                         // Casa de destino ocupada ?? exceção de movimento
+            throw exception();
+
+        if(!ehDistanciaValida(*origem,*destino,sqrt(2)) &&                      // Distancia entre as casas eh valida ?? exceção de movimento
+           !ehDistanciaValida(*origem,*destino,2*sqrt(2)))
+            throw exception();
+         // Fim dos teste inicias  !
+
+        if(ehMovimentoValido(*origem,*destino))                                 // eh movimento ?
         {
-            system("pause");
-            origem.GetPedra()->GetCor();
-            system("pause");
-            if(origem.GetPedra()->GetCor()==true)
-            {
-                system("pause");
-                if(origem.GetY() - destino.GetY() < 0)
-                    return true;
-            }
-            else
-            {
-                if(origem.GetY() - destino.GetY() > 0)
-                    return true;
-            }
+            tab->AtualizaCasasMS(*origem,*destino);
+            return *tab;
         }
-        return false;
-    }
-    catch (exception)
-    {
-        throw exception();
-    }
-}
-
-bool jogo::ehMovimentoValido(Casa origem, Casa destino)
-{
-    return ehDirecaoValida(origem,destino) &&
-           ehDistanciaValida(origem,destino,sqrt(2));
-}
-
-bool jogo::ehCapturaValida(Casa origem,Casa destino)
-{
-    if(ehDistanciaValida(origem,destino,2*sqrt(2)))
-    {
-        switch (calcDirecaoCaptura(origem,destino))
+        else if(ehCapturaValida(*origem,*destino))                              // eh Captura ?
         {
-            case 1:
-                try
-                {
-                  tab->AtualizaCasasCap(origem,destino,*AtualizaJogoCaptura(-1,1,origem));
-
-                   break;
-                }
-                catch(exception)
-                {
-                    return false;
-                }
-            case 2:
-                try
-                {
-                  tab->AtualizaCasasCap(origem,destino,*AtualizaJogoCaptura(-1,-1,origem));
-                   break;
-                }
-                catch(exception)
-                {
-                    return false;
-                }
-            case 3:
-                try
-                {
-                 tab->AtualizaCasasCap(origem,destino,*AtualizaJogoCaptura(1,1,origem));
-                   break;
-                }
-                catch(exception)
-                {
-                    return false;
-                }
-            case 4:
-                try
-                {
-                 tab->AtualizaCasasCap(origem,destino,*AtualizaJogoCaptura(1,-1,origem));
-                   break;
-                }
-                catch(exception)
-                {
-                    return false;
-                }
-
-
-        return true;
-
+            tab->AtualizaCasasCap(*origem,*destino,
+                                  *getPecaItermValida(*origem,*destino));
+            return *tab;
         }
-    }
-}
-
-Casa* jogo::AtualizaJogoCaptura(int x,int y, Casa origem) throw (exception)
-{
-    if(tab->GetDadosCasa(origem.GetX()+x,origem.GetY()+y)->GetPedra()->GetCor()!=origem.GetPedra()->GetCor())
-    {
-        return tab->GetDadosCasa(origem.GetX()+x,origem.GetY()+y);
-    }
-    else
-    {
-        throw exception();
-    }
-}
-
-int jogo::calcDirecaoCaptura(Casa origem, Casa destino) throw (exception)
-{
-    if(origem.GetX() - destino.GetX() <0 && origem.GetY() - destino.GetY()<0)
-        return 4;
-
-    if(origem.GetX() - destino.GetX() <0 && origem.GetY() - destino.GetY()>0)
-        return 3;
-
-    if(origem.GetX() - destino.GetX() >0 && origem.GetY() - destino.GetY()>0)
-        return 2;
-
-    if(origem.GetX() - destino.GetX() >0 && origem.GetY() - destino.GetY()<0)
-        return 1;
-
-    else
-        throw exception();
-}
-
-/* Interface do jogo */
-Tabuleiro jogo::move(Casa origem, Casa destino) throw (exception)
-{
-    if(tab == NULL)
-    {
-        throw exception(); // lan�a excessao de inicializa�ao errada
-    }
-
-    if(ehMovimentoValido(origem,destino))
-    {
-        system("pause");
-        tab->AtualizaCasasMS(origem,destino);
-        return *tab;
-    }
-    else
-    {
-        throw exception(); //lan�a excessao de movimento invalido
-    }
-}
-
-Tabuleiro jogo::captura(Casa origem,Casa destino) throw (exception)
-{
-    if(!ehCapturaValida(origem,destino))
-        throw exception();
+        else                                                                    // Nao eh movimento nem captura ?? exceção de movimento
+        {
+            throw  exception();
+        }
 }
 
 Tabuleiro jogo::newGame()
@@ -183,4 +62,51 @@ Tabuleiro jogo::newGame()
     return *tab;
 }
 
+bool jogo::ehDistanciaValida(Casa origem, Casa destino,float distValida)
+{
+    if( (int)origem.Distancia(destino) == (int)distValida)                      // Distancia valida ?
+        return true;
+    else
+       return false;
+}
+
+bool jogo::ehDirecaoMoveValida(Casa origem, Casa destino)
+{
+        if(origem.GetPedra()->GetCor()==true)                                   // Peça branca ou preta ?
+        {
+            if(origem.GetX() - destino.GetX() < 0)                              // Direção valida para peça branca ?
+                return true;
+        }
+        else
+        {
+            if(origem.GetX() - destino.GetX() > 0)                              // Direção valida para peça preta ?
+                return true;
+        }
+        return false;
+}
+
+bool jogo::ehMovimentoValido(Casa origem, Casa destino)
+{
+    return ehDirecaoMoveValida(origem,destino) &&                               // Direção e distancia validas ?
+            ehDistanciaValida(origem,destino,sqrt(2));
+
+}
+
+bool jogo::ehCapturaValida(Casa origem,Casa destino)
+{
+    Pecas * CasaInter = getPecaItermValida(origem,destino)->
+                                                    GetPedra();
+
+    if(CasaInter!=NULL)                                                         // Existe peça intermediaria ? -- senão captura eh invalida!
+        if(CasaInter->GetCor() != origem.GetPedra()->GetCor())                  // Peça a ser captura eh de cor diferente da peça a ser movida ?
+                    return true;
+
+    return false;
+}
+
+Casa* jogo::getPecaItermValida(Casa origem,Casa destino)
+{
+    return tab->GetDadosCasa((origem.GetX() + destino.GetX())/2,
+                             (origem.GetY() + destino.GetY())/2);
+}
 

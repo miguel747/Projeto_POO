@@ -116,12 +116,13 @@ char Interface::Jogada(Tabuleiro Mesa, string Nome)
     CasaPos.SetY(YPos);
 
     try{
-        Jogo.move(CasaAnt,CasaPos);
+    this->Mesa = Jogo.move(XAnt,YAnt,XPos,YPos);
+    system("pause");
     }
-    catch(exception e){
-        cout<<"aqui!!!!"<<endl;
+    catch(exception e)
+    {
+        cout<<"aqui ou nao aqui"<<endl;
     }
-
 
     //system("cls");
     //se move lançar uma exceção, como fica?
@@ -157,14 +158,15 @@ void Interface::TelaJogo(string Player1, string Player2)
 //            exit(1);
         }
 
-        MostraTabuleiro(Mesa);
+
 
         while((continuar)&&(sair!='s'))
         {
            try
            {
+                MostraTabuleiro(Mesa);
                 sair=Jogada(Mesa,jogador);
-                continuar=0;
+                continuar=1;
                 sair = 'n';
            }
            catch(...)
@@ -181,7 +183,7 @@ void Interface::TelaJogo(string Player1, string Player2)
         {
             jogador=Player1;
         }
-        sair = 's';
+        //sair = 's';
     }
 
     cout<<"deseja salvar o jogo? (s/n) "<<endl;

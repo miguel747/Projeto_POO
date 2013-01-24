@@ -11,21 +11,21 @@ class jogo
         /** Default destructor */
         virtual ~jogo();
 
-        /** move pe�a */
-        Tabuleiro move(Casa origem, Casa destino) throw(exception);
-        Tabuleiro captura(Casa origem,Casa destino) throw(exception);
+        /** move peça */
+        Tabuleiro move(int xOrigem,int yOrigem,int xDest,int yDest) throw(exception);
         Tabuleiro newGame();
 
-    //protected:
     private:
-        Tabuleiro *tab; //!< Member variable "tab"
-        /**/
+        Tabuleiro *tab;
         bool ehDistanciaValida(Casa,Casa,float);
-        bool ehDirecaoValida(Casa,Casa);
+        bool ehDirecaoMoveValida(Casa,Casa);
         bool ehMovimentoValido(Casa,Casa);
         bool ehCapturaValida(Casa origem,Casa destino);
+        bool ehCapPecaItermValida(Casa origem,Casa destino);
+        bool ehDestCapValido(Casa destino);
+        Casa* getPecaItermValida(Casa origem,Casa destino);
         int calcDirecaoCaptura(Casa origem, Casa destino) throw (exception);
-        Casa* AtualizaJogoCaptura(int x,int y,Casa origem) throw (exception);
+
 };
 
 #endif // JOGO_H

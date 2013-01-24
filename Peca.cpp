@@ -1,7 +1,7 @@
 #include "Pecas.h"
 
 Pecas::Pecas(){
-	//this->ehDama = false;
+	this->ehDama = false;
 }
 
 Pecas::Pecas(bool x){
@@ -14,5 +14,5 @@ bool Pecas::GetCor(){
 }
 
 bool Pecas::GetEhDama(){
-	return this->ehDama==true;
+	return this->ehDama;
 }

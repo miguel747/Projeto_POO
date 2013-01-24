@@ -9,20 +9,20 @@ Tabuleiro::Tabuleiro(){
 	for (i = 0; i < 8; i++){
 		for (j = 0; j < 8; j++){
 			if( ( (i%2)==0 && (j%2)  ==0 ) || ( (i%2) == 1 && (j%2) == 1) ){//brancos linhas pares
-				Casa NewMatriz(i,j,true,NULL);
+				Casa *NewMatriz = new Casa(i,j,true,NULL);
 				this->matriz[i][j] = NewMatriz;
 			}
 			if( ( (i%2) ==0 && (j%2) ==1 ) || ( (i%2)==1 && (j%2) ==0 )  ){//pretas linhas pares
 				if(i<3){//peca clara
-					Casa NewMatriz(i,j,false,auxPecaB);
+					Casa *NewMatriz = new Casa(i,j,false,auxPecaB);
 					this->matriz[i][j] = NewMatriz;
 				}
 				if(i>4){//pecas escuras
-					Casa NewMatriz(i,j,false,auxPecaP);
+					Casa *NewMatriz = new Casa(i,j,false,auxPecaP);
 					this->matriz[i][j] = NewMatriz;
 				}
 				if(i==3 || i==4){//para i=3 e i=4 que nao possui pecas
-					Casa NewMatriz(i,j,false,NULL);
+					Casa *NewMatriz = new Casa(i,j,false,NULL);
 					this->matriz[i][j] = NewMatriz;
 				}
 			}
@@ -33,7 +33,7 @@ Tabuleiro::Tabuleiro(){
 }
 
 Casa* Tabuleiro::GetDadosCasa(int x, int y){
-	Casa* auxCasa = &this->matriz[x][y];
+	Casa* auxCasa = this->matriz[x][y];
 	if( x>7 || y>7 ){
 		return NULL;
 	}
@@ -41,38 +41,16 @@ Casa* Tabuleiro::GetDadosCasa(int x, int y){
 }
 
 void Tabuleiro::AtualizaCasasMS(Casa origem, Casa destino){
-	Pecas auxPeca(true);
-	for (int i = 0; i < 8; ++i){
-		for (int j = 0; i < 8; ++j){
-			if(origem.GetX() == i && origem.GetY() == j){
-				auxPeca = origem.GetPedra();
-				this->matriz[i][j].SetPedras(NULL);
-			}
-			if(destino.GetY() == i && destino.GetY() == j)
-				this->matriz[i][j].SetPedras(&auxPeca);
-		}
-	}
+
+this->matriz[destino.GetX()][destino.GetY()]->                                  // Destino recebe peça
+     SetPedras(this->matriz[origem.GetX()][origem.GetY()]->GetPedra());
+this->matriz[origem.GetX()][origem.GetY()]->SetPedras(NULL);                    // Origem perde peça
 }
 
 void Tabuleiro::AtualizaCasasCap(Casa origem, Casa destino, Casa intermediaria){
-	Pecas auxPeca(true);
-	for (int i = 0; i < 8; ++i){
-		for (int j = 0; j < 8; ++i){
-			if(intermediaria.GetX() == i && intermediaria.GetY() ==j){
-				auxPeca = intermediaria.GetPedra();
-				this->matriz[i][j].SetPedras(NULL);
-				if(auxPeca.GetCor() == true)
-					this->numPecasBrancas--;
-				else
-					this->numPecasPretas--;
-			}
-			if (origem.GetX() == i && origem.GetY() == j)
-			{
-				auxPeca = origem.GetPedra();
-				this->matriz[i][j].SetPedras(NULL);
-			}
-			if (destino.GetX() == i && destino.GetY() == j)
-				this->matriz[i][j].SetPedras(&auxPeca);
-		}
-	}
+
+	this->matriz[destino.GetX()][destino.GetY()]->                              // Destino recebe peça
+          SetPedras(this->matriz[origem.GetX()][origem.GetY()]->GetPedra());
+    this->matriz[origem.GetX()][origem.GetY()]->SetPedras(NULL);                // Origem perde peça
+    this->matriz[intermediaria.GetX()][intermediaria.GetY()]->SetPedras(NULL);  // Itermediaria perde peça
 }

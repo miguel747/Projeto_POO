@@ -1,7 +1,11 @@
 #include "Casa.h"
 #include <math.h>
+#include <iostream>
 
-Casa::Casa(){}
+Casa::Casa()
+{
+    this->pedra = NULL;
+}
 
 Casa::Casa(int x, int y, bool cor, Pecas* pedra){
 	this->x = x;
@@ -18,16 +22,16 @@ float Casa::Distancia(Casa outra){
 	return dist;
 }
 
-void Casa::SetPedras(Pecas* outra) throw(string){
-	if(this->pedra != NULL)
-		throw "ErroSP";
-	else
+void Casa::SetPedras(Pecas* outra) /*throw(string)*/{
 		this->pedra = outra;
 }
 
 void Casa::SetX(int x){
-    this->x=x;
-    this->y=y;
+  //	if(this->pedra != NULL)
+//		throw "ErroSP";
+//	else
+  this->x=x;
+    //this->y=y;
 }
 
 void Casa::SetY(int y){

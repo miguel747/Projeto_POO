@@ -5,7 +5,7 @@
 class Tabuleiro
 {
     private:
-    Casa matriz[8][8];
+    Casa *matriz[8][8];
     int numPecasBrancas, numPecasPretas;
 
     public:
