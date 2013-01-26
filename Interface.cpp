@@ -1,6 +1,6 @@
 /*
  * File:   Interface.cpp
- * Author: Laís
+ * Author: Laís Mendes Goncalves
  *
  * Created on 15 de Dezembro de 2012, 02:34
  */
