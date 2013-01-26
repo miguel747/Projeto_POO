@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Casas">
+        <file alias="Branca">CasaBranca.jpg</file>
+        <file alias="Preta">CasaPreta.jpg</file>
+    </qresource>
+</RCC>
