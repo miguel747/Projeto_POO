@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QGraphicsView>
 #include <QLabel>
+class QString;
+class QHBoxLayout;
 
 class MainWindow : public QWidget
 {
@@ -17,6 +19,10 @@ private:
     QGraphicsView  *view;
     QLabel *player1;
     QLabel *player2;
+    QHBoxLayout *layout;
+    void iniciaTabView(QString imCasaBranca, QString imCasaPreta);
+    void iniciaPecaView();
+    void iniciaLabel();
 
 };
 
