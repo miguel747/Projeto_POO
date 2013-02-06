@@ -64,15 +64,15 @@ MainWindow::~MainWindow()
     
 }
 
-void updateview(Tabuleiro tab)
-{
-    for(int i = 0; i<8 ; i++){
-        for(int j = 0; j<8 ; j++)
-        {
-           //tab.GetDadosCasa()
-        }
-    }
-}
+//void updateview(Tabuleiro tab)
+//{
+//    for(int i = 0; i<8 ; i++){
+//        for(int j = 0; j<8 ; j++)
+//        {
+//           //tab.GetDadosCasa()
+//        }
+//    }
+//}
 
 void MainWindow::iniciaTabView(QString imCasaBranca, QString imCasaPreta)
 {
