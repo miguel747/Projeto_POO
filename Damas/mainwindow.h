@@ -14,6 +14,10 @@ class MainWindow : public QWidget
 public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void iniciaLayout();
+    void iniciaScene();
+    void iniciaView();
+    void inicia();
 private:
     QGraphicsScene *scene;
     QGraphicsView  *view;

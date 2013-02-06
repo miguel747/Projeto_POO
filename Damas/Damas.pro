@@ -14,10 +14,20 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    casa.cpp
+        pecasView.cpp \
+        Casa.cpp \
+        jogo.cpp \
+        Peca.cpp \
+        Tabuleiro.cpp
 
 HEADERS  += mainwindow.h \
-    casa.h
+        pecasView.h \
+        Casa.h \
+        jogo.h \
+        Peca.h \
+        Tabuleiro.h
 
 RESOURCES += \
     Resources.qrc
+
+CONFIG += exceptions
