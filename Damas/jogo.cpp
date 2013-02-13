@@ -1,10 +1,13 @@
 #include "jogo.h"
 #include <math.h>
 #include "Casa.h"
+#include <QDebug>
 
+jogo * jogo::instance = NULL;
 jogo::jogo()
 {
    tab = NULL;
+   newGame();
     //ctor
 }
 
@@ -15,6 +18,7 @@ jogo::~jogo()
 
 Tabuleiro jogo::move(int xOrigem,int yOrigem,int xDest,int yDest) throw (exception)
 {
+
         // Testes de inicialização                                              // Tabuleiro nao foi inicializdo ?? exceção de inicializacão
         if(tab == NULL)
             throw exception();
@@ -111,3 +115,12 @@ Casa* jogo::getPecaItermValida(Casa origem,Casa destino)
                              (origem.GetY() + destino.GetY())/2);
 }
 
+jogo* jogo::getInstance()
+{
+    if(instance == 0)
+    {
+        instance = new jogo();
+        return instance;
+    }
+    return instance;
+}

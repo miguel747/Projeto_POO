@@ -18,16 +18,23 @@ SOURCES += main.cpp\
         Casa.cpp \
         jogo.cpp \
         Peca.cpp \
-        Tabuleiro.cpp
+        Tabuleiro.cpp \
+    icontroller.cpp \
+    iview.cpp \
+    pecascontroller.cpp
 
 HEADERS  += mainwindow.h \
         pecasView.h \
         Casa.h \
         jogo.h \
         Peca.h \
-        Tabuleiro.h
+        Tabuleiro.h \
+    icontroller.h \
+    iview.h \
+    pecascontroller.h
 
 RESOURCES += \
     Resources.qrc
 
-CONFIG += exceptions
+CONFIG += exceptions \
+            rtti

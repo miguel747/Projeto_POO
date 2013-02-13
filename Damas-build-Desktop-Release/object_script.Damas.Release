@@ -1,0 +1,14 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\pecasView.o
+./release\Casa.o
+./release\jogo.o
+./release\Peca.o
+./release\Tabuleiro.o
+./release\icontroller.o
+./release\iview.o
+./release\pecascontroller.o
+./release\moc_mainwindow.o
+./release\qrc_Resources.o
+);

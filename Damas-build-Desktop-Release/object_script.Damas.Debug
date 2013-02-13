@@ -1,0 +1,14 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\pecasView.o
+./debug\Casa.o
+./debug\jogo.o
+./debug\Peca.o
+./debug\Tabuleiro.o
+./debug\icontroller.o
+./debug\iview.o
+./debug\pecascontroller.o
+./debug\moc_mainwindow.o
+./debug\qrc_Resources.o
+);

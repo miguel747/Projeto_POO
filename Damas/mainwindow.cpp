@@ -5,9 +5,9 @@
 #include <QGraphicsGridLayout>
 #include <QLayout>
 #include <QSize>
-#include <QDebug>
-#include "Tabuleiro.h"
+#include "jogo.h"
 #include <QString>
+#include <QDebug>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -18,11 +18,12 @@ MainWindow::MainWindow(QWidget *parent)
     this->resize(900,650);
 
     inicia();
-
 }
 
 void MainWindow::inicia()
 {
+    newJogo = jogo::getInstance();
+    newJogo->newGame();
     iniciaScene();
     iniciaView();
     iniciaLabel();
@@ -56,6 +57,8 @@ void MainWindow::iniciaLayout()
     layout->addWidget(view);
     layout->addWidget(player2);
 
+    player2->setAlignment(Qt::AlignBottom);
+
     setLayout(layout);
 }
 
@@ -63,24 +66,12 @@ MainWindow::~MainWindow()
 {
     
 }
-
-//void updateview(Tabuleiro tab)
-//{
-//    for(int i = 0; i<8 ; i++){
-//        for(int j = 0; j<8 ; j++)
-//        {
-//           //tab.GetDadosCasa()
-//        }
-//    }
-//}
-
 void MainWindow::iniciaTabView(QString imCasaBranca, QString imCasaPreta)
 {
     int linha,i,j;
-
     for(i = 0;i<8;i++){
         linha = (i*j/8)%2;                                                      //linha = 0 se linha par, 1 caso contrario
-        for(j = 0; j<8;j++){
+        for(j = 0; j<8; j++){
             if(linha==0){                                                       // linha == 0 ?
                 if(j%2==0){                                                     // sim colunas pares sao pretas
                     scene->addRect(i*75,j*75,75,75,QPen(Qt::black),
@@ -105,11 +96,8 @@ void MainWindow::iniciaTabView(QString imCasaBranca, QString imCasaPreta)
                     scene->itemAt(i*75,j*75)->setZValue(-1);
                 }
             }
-
-
         }
     }
-
 }
 
 void MainWindow::iniciaPecaView()
@@ -129,9 +117,7 @@ void MainWindow::iniciaPecaView()
                     scene->addItem(elip);
                 }
         }
-
-
-    }
+}
 
     for(i = 5;i<8;i++){
         for(j = 0; j<8;j++){
@@ -144,10 +130,7 @@ void MainWindow::iniciaPecaView()
             else                                                                // Nao
                 if(j%2==1){                                                     // j eh impar ?
                     pecasView *elip = new pecasView(i,j,QBrush(Qt::black));
-                    qDebug()<<elip->pos();
                     scene->addItem(elip);
-                    qDebug()<<scene->itemAt(elip->pos());
-                    //qDebug()<<elip;
                 }
         }
     }
@@ -164,7 +147,9 @@ void MainWindow::iniciaLabel()
     player2->setStyleSheet("color: white; font-size: 15px");
     player2->setFrameStyle(QFrame::Panel | QFrame::Raised);
     player2->setLineWidth(4);
-    player2->setAlignment(Qt::AlignBottom);
-
-
 }
+
+void MainWindow::moveEvent()
+{
+}
+
