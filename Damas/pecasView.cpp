@@ -1,18 +1,22 @@
-#include "pecasview.h"
+#include "pecasView.h"
 #include <QBrush>
 #include <QGraphicsSceneMouseEvent>
 #include <QDebug>
 #include <QGraphicsScene>
-#include "pecascontroller.h"
 
-pecasView::pecasView(int i, int j,QBrush brush) : QGraphicsEllipseItem(0,0,70,70,NULL)
+pecasView::pecasView(int i, int j, QBrush brush, Controller *ctr) : QGraphicsEllipseItem(0,0,70,70,NULL)
 {
+    controller = ctr;
+    controller->addView(this);
+    game = jogo::getInstance();
+    game->attach(this);
+
     setZValue(3);
     setBrush(brush);
     setFlags(ItemIsMovable| ItemIgnoresTransformations);
     setPos(i*75.0,j*75.0);
-    controller = new pecasController();
-    controller->setView(this);
+
+    qDebug()<<"PecasView Construtor";
 }
 
 void pecasView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
@@ -20,17 +24,8 @@ void pecasView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
     QGraphicsItem::mouseReleaseEvent(event); // move the item...
     // ...then check the bounds
-
-
-    try{
-     pecasController *b = static_cast<pecasController *>(controller);
-    qDebug()<<b;
-    b->moveEvent(moveInicio,pos());
-    }
-    catch(...)
-    {
-        qDebug()<<"Exceçao aqui\n";
-    }
+    qDebug()<<"Moved";
+    controller->notifyEvent("MOVED",this);
 
     if (x() < 0)
         setPos(0, y());
@@ -49,22 +44,29 @@ void pecasView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 }
 
 
-void pecasView::updateView()
+void pecasView::updateView(QString changeId)
 {
+    return;
 }
 
-void pecasView::setController(iController *)
+void pecasView::setController(Controller *ctr)
 {
+    this->controller = ctr;
 }
 
-iController *pecasView::getController()
+Controller *pecasView::getController()
 {
+    return controller;
 }
 
-void pecasView::setModel(jogo *model)
+
+QPointF pecasView::EventPosInicial()
 {
+    return moveInicio;
 }
 
-jogo *pecasView::getModel()
+
+QPointF pecasView::EventPosFinal()
 {
+    return pos();
 }

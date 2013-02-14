@@ -7,25 +7,31 @@
 #include <QPointF>
 
 #include "iview.h"
+#include "controller.h"
+#include "jogo.h"
+
 
 
 class pecasView : public QGraphicsEllipseItem, public iView
 {
 public:
-    pecasView(int i,int j,QBrush );
+    pecasView(int i,int j,QBrush ,Controller *ctr);
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *);
     void mousePressEvent(QGraphicsSceneMouseEvent *);
 
-    void updateView();
-    void setController(iController *);
-    iController* getController();
-    void setModel(jogo *model);
-    jogo* getModel();
+    void updateView(QString changeId);
+    void setController(Controller *ctr);
+    Controller* getController();
+
+
+    QPointF EventPosInicial();
+    QPointF EventPosFinal();
+
 private:
     QPointF moveInicio;
     QPointF moveFim;
-    iController *controller;
-    jogo* newGame;
+    Controller *controller;
+    jogo* game;
 };
 
 #endif // PECASVIEW_H

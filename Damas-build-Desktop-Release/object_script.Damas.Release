@@ -6,9 +6,11 @@ INPUT(
 ./release\jogo.o
 ./release\Peca.o
 ./release\Tabuleiro.o
-./release\icontroller.o
 ./release\iview.o
-./release\pecascontroller.o
+./release\gameview.o
+./release\pontosview.o
+./release\controller.o
 ./release\moc_mainwindow.o
+./release\moc_pontosview.o
 ./release\qrc_Resources.o
 );

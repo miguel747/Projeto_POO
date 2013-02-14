@@ -1,15 +1,15 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'mainwindow.h'
+** Meta object code from reading C++ file 'pontosview.h'
 **
-** Created: Thu 14. Feb 18:29:15 2013
+** Created: Thu 14. Feb 17:38:44 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../Damas/mainwindow.h"
+#include "../../Damas/pontosview.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'mainwindow.h' doesn't include <QObject>."
+#error "The header file 'pontosview.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
 #error "This file was generated using the moc from 4.8.3. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_MainWindow[] = {
+static const uint qt_meta_data_PontosView[] = {
 
  // content:
        6,       // revision
@@ -33,11 +33,11 @@ static const uint qt_meta_data_MainWindow[] = {
        0        // eod
 };
 
-static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0"
+static const char qt_meta_stringdata_PontosView[] = {
+    "PontosView\0"
 };
 
-void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void PontosView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     Q_UNUSED(_o);
     Q_UNUSED(_id);
@@ -45,37 +45,37 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     Q_UNUSED(_a);
 }
 
-const QMetaObjectExtraData MainWindow::staticMetaObjectExtraData = {
+const QMetaObjectExtraData PontosView::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject MainWindow::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_MainWindow,
-      qt_meta_data_MainWindow, &staticMetaObjectExtraData }
+const QMetaObject PontosView::staticMetaObject = {
+    { &QLabel::staticMetaObject, qt_meta_stringdata_PontosView,
+      qt_meta_data_PontosView, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &MainWindow::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &PontosView::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *MainWindow::metaObject() const
+const QMetaObject *PontosView::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *MainWindow::qt_metacast(const char *_clname)
+void *PontosView::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_MainWindow))
-        return static_cast<void*>(const_cast< MainWindow*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_PontosView))
+        return static_cast<void*>(const_cast< PontosView*>(this));
     if (!strcmp(_clname, "iView"))
-        return static_cast< iView*>(const_cast< MainWindow*>(this));
-    return QWidget::qt_metacast(_clname);
+        return static_cast< iView*>(const_cast< PontosView*>(this));
+    return QLabel::qt_metacast(_clname);
 }
 
-int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int PontosView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QWidget::qt_metacall(_c, _id, _a);
+    _id = QLabel::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     return _id;
