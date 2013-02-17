@@ -35,10 +35,12 @@
                      displayName="New Teste CppUnit"
                      projectFiles="true"
                      kind="TEST">
-        <itemPath>newtestclass.cpp</itemPath>
-        <itemPath>newtestclass.h</itemPath>
-        <itemPath>newtestrunner.cpp</itemPath>
-        <itemPath>testmain.cpp</itemPath>
+        <itemPath>RunnerTestArqTexto.cpp</itemPath>
+        <itemPath>RunnerTestTabuleiro.cpp</itemPath>
+        <itemPath>testClassArqTexto.cpp</itemPath>
+        <itemPath>testClassArqTexto.h</itemPath>
+        <itemPath>testClassTabuleiro.cpp</itemPath>
+        <itemPath>testClassTabuleiro.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

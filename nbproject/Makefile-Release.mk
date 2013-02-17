@@ -114,27 +114,33 @@ ${OBJECTDIR}/jogo.o: jogo.cpp
 
 # Build Test Targets
 .build-tests-conf: .build-conf ${TESTFILES}
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/projeto_poo: ${TESTDIR}/newtestclass.o ${TESTDIR}/newtestrunner.o ${TESTDIR}/testmain.o ${OBJECTFILES:%.o=%_nomain.o}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/projeto_poo: ${TESTDIR}/RunnerTestArqTexto.o ${TESTDIR}/RunnerTestTabuleiro.o ${TESTDIR}/testClassArqTexto.o ${TESTDIR}/testClassTabuleiro.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc}   -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/projeto_poo $^ ${LDLIBSOPTIONS} 
 
 
-${TESTDIR}/newtestclass.o: newtestclass.cpp 
+${TESTDIR}/RunnerTestArqTexto.o: RunnerTestArqTexto.cpp 
 	${MKDIR} -p ${TESTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/newtestclass.o newtestclass.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/RunnerTestArqTexto.o RunnerTestArqTexto.cpp
 
 
-${TESTDIR}/newtestrunner.o: newtestrunner.cpp 
+${TESTDIR}/RunnerTestTabuleiro.o: RunnerTestTabuleiro.cpp 
 	${MKDIR} -p ${TESTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/newtestrunner.o newtestrunner.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/RunnerTestTabuleiro.o RunnerTestTabuleiro.cpp
 
 
-${TESTDIR}/testmain.o: testmain.cpp 
+${TESTDIR}/testClassArqTexto.o: testClassArqTexto.cpp 
 	${MKDIR} -p ${TESTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/testmain.o testmain.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/testClassArqTexto.o testClassArqTexto.cpp
+
+
+${TESTDIR}/testClassTabuleiro.o: testClassTabuleiro.cpp 
+	${MKDIR} -p ${TESTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/testClassTabuleiro.o testClassTabuleiro.cpp
 
 
 ${OBJECTDIR}/arqtexto_nomain.o: ${OBJECTDIR}/arqtexto.o arqtexto.cpp 
