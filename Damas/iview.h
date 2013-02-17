@@ -1,24 +1,21 @@
 #ifndef IVIEW_H
 #define IVIEW_H
 
-#include <QString>
-#include <QPointF>
+#include "jogo.h"
+#include "icontroller.h"
 
-class jogo;
-
-class Controller;
+class iController;
 
 class iView
 {
 public:
     // Items da view devem conhecer seu controle e o jogo
-    virtual void setController(Controller*) = 0;
-    virtual Controller* getController() = 0;
+    virtual void setController(iController*) = 0;
+    virtual iController* getController() = 0;
+    virtual void setModel(jogo *model) = 0;
+    virtual jogo* getModel() = 0;
 
-    virtual void updateView(QString changeId) = 0;
-
-    virtual QPointF EventPosInicial() = 0;
-    virtual QPointF EventPosFinal() = 0;
+    virtual void updateView() = 0;
 
     iView();
 };

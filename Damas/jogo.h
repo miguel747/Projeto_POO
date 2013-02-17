@@ -3,8 +3,6 @@
 
 #include "Tabuleiro.h"
 #include <exception>
-#include <QList>
-#include "iview.h"
 
 class jogo
 {
@@ -15,28 +13,16 @@ class jogo
 
 
         static jogo *getInstance();
-
-        void attach(iView *observer);
-        void dettach(iView *observer);
-        void notify(QString changeId);
-
-        Tabuleiro* getTab(){ return tab; }
         /** move peça */
-        void move(int xOrigem,int yOrigem,int xDest,int yDest) throw(exception);
-        void newGame();
+        Tabuleiro move(int xOrigem,int yOrigem,int xDest,int yDest) throw(exception);
+        Tabuleiro newGame();
 
     private:
         /** Default constructor */
         jogo();
         static jogo *instance;
 
-        QList<iView*> observers;
-
         Tabuleiro *tab;
-
-        QString Player1;
-        QString Player2;
-
         bool ehDistanciaValida(Casa,Casa,float);
         bool ehDirecaoMoveValida(Casa,Casa);
         bool ehMovimentoValido(Casa,Casa);

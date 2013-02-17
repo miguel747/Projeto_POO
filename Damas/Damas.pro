@@ -19,10 +19,9 @@ SOURCES += main.cpp\
         jogo.cpp \
         Peca.cpp \
         Tabuleiro.cpp \
+    icontroller.cpp \
     iview.cpp \
-    gameview.cpp \
-    pontosview.cpp \
-    controller.cpp
+    pecascontroller.cpp
 
 HEADERS  += mainwindow.h \
         pecasView.h \
@@ -30,10 +29,9 @@ HEADERS  += mainwindow.h \
         jogo.h \
         Peca.h \
         Tabuleiro.h \
-    gameview.h \
-    pontosview.h \
+    icontroller.h \
     iview.h \
-    controller.h
+    pecascontroller.h
 
 RESOURCES += \
     Resources.qrc

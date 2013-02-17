@@ -16,22 +16,7 @@ jogo::~jogo()
     //dtor
 }
 
-void jogo::attach(iView *observer)
-{
-    observers.append(observer);
-}
-
-void jogo::dettach(iView *observer)
-{
-    observers.removeOne(observer);
-}
-void jogo::notify(QString changeId)
-{
-    for(int i=0;i<observers.size();i++)
-        observers.at(i)->updateView(changeId);
-}
-
-void jogo::move(int xOrigem,int yOrigem,int xDest,int yDest) throw (exception)
+Tabuleiro jogo::move(int xOrigem,int yOrigem,int xDest,int yDest) throw (exception)
 {
 
         // Testes de inicialização                                              // Tabuleiro nao foi inicializdo ?? exceção de inicializacão
@@ -62,14 +47,13 @@ void jogo::move(int xOrigem,int yOrigem,int xDest,int yDest) throw (exception)
         if(ehMovimentoValido(*origem,*destino))                                 // eh movimento ?
         {
             tab->AtualizaCasasMS(*origem,*destino);
-            notify("Moved");
+            return *tab;
         }
         else if(ehCapturaValida(*origem,*destino))                              // eh Captura ?
         {
             tab->AtualizaCasasCap(*origem,*destino,
                                   *getPecaItermValida(*origem,*destino));
-            notify("Moved");
-
+            return *tab;
         }
         else                                                                    // Nao eh movimento nem captura ?? exceção de movimento
         {
@@ -77,10 +61,10 @@ void jogo::move(int xOrigem,int yOrigem,int xDest,int yDest) throw (exception)
         }
 }
 
-void jogo::newGame()
+Tabuleiro jogo::newGame()
 {
     tab = new Tabuleiro();
-    notify("Begin");
+    return *tab;
 }
 
 bool jogo::ehDistanciaValida(Casa origem, Casa destino,float distValida)

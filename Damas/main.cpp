@@ -4,9 +4,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Controller *controller = new Controller();
-    MainWindow w(controller);
-    controller->star();
+    MainWindow w;
+    w.show();
     
     return a.exec();
 }

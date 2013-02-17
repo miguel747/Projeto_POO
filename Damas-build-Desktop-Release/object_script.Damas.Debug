@@ -6,11 +6,9 @@ INPUT(
 ./debug\jogo.o
 ./debug\Peca.o
 ./debug\Tabuleiro.o
+./debug\icontroller.o
 ./debug\iview.o
-./debug\gameview.o
-./debug\pontosview.o
-./debug\controller.o
+./debug\pecascontroller.o
 ./debug\moc_mainwindow.o
-./debug\moc_pontosview.o
 ./debug\qrc_Resources.o
 );
