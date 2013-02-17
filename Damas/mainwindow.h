@@ -5,43 +5,37 @@
 #include <QGraphicsView>
 #include <QLabel>
 #include "jogo.h"
-#include "gameview.h"
-#include "pontosview.h"
-
 class QString;
 class QHBoxLayout;
 
-class MainWindow : public QWidget,public iView
+class MainWindow : public QWidget
 {
     Q_OBJECT
     
 public:
-    MainWindow(Controller *controller,QWidget *parent = 0);
+    MainWindow(QWidget *parent = 0);
     ~MainWindow();
-      void iniciaLayout();
-//    void iniciaScene();
-//    void iniciaView();
-      void inicia();
-//    void iniciaPecas(int inicio, int fim, QBrush brush);
-    //void updateview(Tabuleiro tab);
-    //void renovaScene();
-
-    void setController(Controller *ctr);
-    Controller* getController();
-    void updateView(QString changeId);
-
-    QPointF EventPosInicial();
-    QPointF EventPosFinal();
-
+    void iniciaLayout();
+    void iniciaScene();
     void iniciaView();
+    void inicia();
+    void iniciaPecas(int inicio, int fim, QBrush brush);
+    void updateview(Tabuleiro tab);
+    void renovaScene();
 private:
     QGraphicsScene *scene;
-    gameView  *view;
-    PontosView *player1;
-    PontosView *player2;
+    QGraphicsView  *view;
+    QLabel *player1;
+    QLabel *player2;
     QHBoxLayout *layout;
-    jogo *game;
-    Controller* controller;
+    jogo *newJogo;
+    void iniciaTabView(QString imCasaBranca, QString imCasaPreta);
+    void iniciaPecaView();
+    void iniciaLabel();
+public slots:
+    void moveEvent();
+
+
 };
 
 #endif // MAINWINDOW_H
