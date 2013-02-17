@@ -78,12 +78,14 @@
         <ccTool>
           <incDir>
             <pElem>.</pElem>
+            <pElem>../../../Unb/POO/trabalho/save/cppunit-1.12.1/include</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f1</output>
           <linkerLibItems>
             <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
+            <linkerLibFileItem>../../../Unb/POO/trabalho/save/cppunit-1.12.1/lib/libcppunit.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
       </folder>

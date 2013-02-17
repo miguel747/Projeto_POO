@@ -116,25 +116,25 @@ ${OBJECTDIR}/jogo.o: jogo.cpp
 .build-tests-conf: .build-conf ${TESTFILES}
 ${TESTDIR}/TestFiles/f1: ${TESTDIR}/newtestclass.o ${TESTDIR}/newtestrunner.o ${TESTDIR}/testmain.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
-	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} ../../trabalho/save/cppunit-1.12.1/lib/libcppunit.a -lcppunit 
+	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} ../../trabalho/save/cppunit-1.12.1/lib/libcppunit.a -lcppunit ../../../Unb/POO/trabalho/save/cppunit-1.12.1/lib/libcppunit.a 
 
 
 ${TESTDIR}/newtestclass.o: newtestclass.cpp 
 	${MKDIR} -p ${TESTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -I. -I../../trabalho/save/cppunit-1.12.1/include -MMD -MP -MF $@.d -o ${TESTDIR}/newtestclass.o newtestclass.cpp
+	$(COMPILE.cc) -g -I. -I../../../Unb/POO/trabalho/save/cppunit-1.12.1/include -I../../trabalho/save/cppunit-1.12.1/include -MMD -MP -MF $@.d -o ${TESTDIR}/newtestclass.o newtestclass.cpp
 
 
 ${TESTDIR}/newtestrunner.o: newtestrunner.cpp 
 	${MKDIR} -p ${TESTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -I. -I../../trabalho/save/cppunit-1.12.1/include -MMD -MP -MF $@.d -o ${TESTDIR}/newtestrunner.o newtestrunner.cpp
+	$(COMPILE.cc) -g -I. -I../../../Unb/POO/trabalho/save/cppunit-1.12.1/include -I../../trabalho/save/cppunit-1.12.1/include -MMD -MP -MF $@.d -o ${TESTDIR}/newtestrunner.o newtestrunner.cpp
 
 
 ${TESTDIR}/testmain.o: testmain.cpp 
 	${MKDIR} -p ${TESTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -I. -I../../trabalho/save/cppunit-1.12.1/include -MMD -MP -MF $@.d -o ${TESTDIR}/testmain.o testmain.cpp
+	$(COMPILE.cc) -g -I. -I../../../Unb/POO/trabalho/save/cppunit-1.12.1/include -I../../trabalho/save/cppunit-1.12.1/include -MMD -MP -MF $@.d -o ${TESTDIR}/testmain.o testmain.cpp
 
 
 ${OBJECTDIR}/arqtexto_nomain.o: ${OBJECTDIR}/arqtexto.o arqtexto.cpp 

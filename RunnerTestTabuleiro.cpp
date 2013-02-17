@@ -6,14 +6,19 @@
  */
 
 #include <cstdlib>
-#include "ErroSave.h"
-#include "Persistencia.h"
-#include "arqtexto.h"
-#include "newtestclass.h"
+#include <iostream>
+#include <cppunit/BriefTestProgressListener.h>
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/TestResult.h>
+#include <cppunit/TestResultCollector.h>
+#include <cppunit/TestRunner.h>
+#include "Tabuleiro.h"
+#include "testClassTabuleiro.h"
 
 using namespace std
 
-int main(int argc, char** argv) {
+int main() {
     
     CPPUNIT_NS::TestResult controller;
     

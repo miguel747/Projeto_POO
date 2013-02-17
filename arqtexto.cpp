@@ -6,6 +6,9 @@
  */
 
 #include "arqtexto.h"
+#include <fstream>
+
+using namespace std;
 
 arqtexto::arqtexto() {
 }
@@ -29,7 +32,7 @@ void arqtexto::AnalisaJogo (jogo Partida) throw (ErroSave){
 void arqtexto::Salvar(jogo Partida) {
     int linha,coluna;
     
-    try(){
+    try{
         this->AnalisaJogo(Partida);  
         
         this->EscreveArquivo(persistencia);
@@ -52,7 +55,7 @@ void arqtexto::Salvar(jogo Partida) {
     }
     catch(ErroSave e)
     {
-        e.ShoeErro;
+        e.ShowErro();
     }
     
     
@@ -65,9 +68,9 @@ jogo* arqtexto::Carregar(void) {
         Tabuleiro *Partida = new Tabuleiro();
         Casa *casa = new Casa();
         Pecas *pedra = new Pecas();
-        Jogo* Salvo = new getInstance();
+        jogo *Salvo = jogo::getInstance();
 
-        int cor,dama,linha coluna;
+        int cor,dama,linha,coluna;
 
         while(!persistencia.fail())
         {

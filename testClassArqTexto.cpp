@@ -5,11 +5,11 @@
  * Created on 17/02/2013, 04:27:30
  */
 
-#include "newtestclass.h"
+#include "testClassArqTexto.h"
 #include "arqtexto.h"
 
 
-CPPUNIT_TEST_SUITE_REGISTRATION(newtestclass);
+CPPUNIT_TEST_SUITE_REGISTRATION(arqtextTeste);
 
 arqtextTeste::arqtextTeste() {
 }
