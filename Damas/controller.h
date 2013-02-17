@@ -14,8 +14,8 @@ public:
     Controller();
     void star();
 private:
-    QList<iView*> views;
-    jogo *game;
+    QList<iView*>       views;
+    jogo                *game;
 };
 
 #endif // ICONTROLLER_H

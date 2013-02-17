@@ -10,8 +10,6 @@
 #include "controller.h"
 #include "jogo.h"
 
-
-
 class pecasView : public QGraphicsEllipseItem, public iView
 {
 public:
@@ -23,15 +21,14 @@ public:
     void setController(Controller *ctr);
     Controller* getController();
 
-
     QPointF EventPosInicial();
     QPointF EventPosFinal();
 
 private:
-    QPointF moveInicio;
-    QPointF moveFim;
-    Controller *controller;
-    jogo* game;
+    QPointF         moveInicio;
+    QPointF         moveFim;
+    Controller      *controller;
+    jogo            *game;
 };
 
 #endif // PECASVIEW_H

@@ -13,7 +13,7 @@ class jogo
         /** Default destructor */
         virtual ~jogo();
 
-
+        /* retorna instancia unica */
         static jogo *getInstance();
 
         void attach(iView *observer);
@@ -21,21 +21,20 @@ class jogo
         void notify(QString changeId);
 
         Tabuleiro* getTab(){ return tab; }
+
         /** move peça */
         void move(int xOrigem,int yOrigem,int xDest,int yDest) throw(exception);
         void newGame();
 
     private:
-        /** Default constructor */
+        /** Singleton: construtor privado */
         jogo();
-        static jogo *instance;
+        static jogo         *instance;
+        QList<iView*>       observers;
 
-        QList<iView*> observers;
-
-        Tabuleiro *tab;
-
-        QString Player1;
-        QString Player2;
+        Tabuleiro           *tab;
+        QString             Player1;
+        QString             Player2;
 
         bool ehDistanciaValida(Casa,Casa,float);
         bool ehDirecaoMoveValida(Casa,Casa);
@@ -45,7 +44,6 @@ class jogo
         bool ehDestCapValido(Casa destino);
         Casa* getPecaItermValida(Casa origem,Casa destino);
         int calcDirecaoCaptura(Casa origem, Casa destino) throw (exception);
-
 };
 
 #endif // JOGO_H

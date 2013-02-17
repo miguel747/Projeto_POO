@@ -15,7 +15,6 @@ PontosView::PontosView(QString Player, Controller *ctr, QWidget *parent) :
     setStyleSheet("color: white; font-size: 15px");
     setFrameStyle(QFrame::Panel | QFrame::Raised);
     setLineWidth(4);
-    qDebug()<<"PontosView construtor";
 }
 
 void PontosView::setController(Controller *)

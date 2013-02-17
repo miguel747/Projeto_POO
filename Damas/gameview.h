@@ -19,13 +19,14 @@ public:
     QPointF EventPosFinal();
 
     void updateTab(Tabuleiro *tab);
-private:
-    jogo* game;
-    QGraphicsScene* scene;
-    Controller* controller;
 
-    QList<pecasView*> pecasBrancas;
-    QList<pecasView*> pecasPretas;
+private:
+    jogo                *game;
+    QGraphicsScene      *scene;
+    Controller          *controller;
+
+    QList<pecasView*>   pecasBrancas;
+    QList<pecasView*>   pecasPretas;
 
     void begin(Tabuleiro* tab);
 };

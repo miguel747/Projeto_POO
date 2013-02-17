@@ -18,15 +18,11 @@ public:
 
     QPointF EventPosInicial();
     QPointF EventPosFinal();
+
 private:
-    jogo* game;
-    QString player;
-    Controller *controller;
-    
-signals:
-    
-public slots:
-    
+    jogo            *game;
+    QString         player;
+    Controller      *controller;
 };
 
 #endif // PLAYERPONTOSVIEW_H

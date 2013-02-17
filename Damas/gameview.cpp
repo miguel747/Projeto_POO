@@ -6,18 +6,12 @@ gameView::gameView(Controller *controller):QGraphicsView()
 {
     game = jogo::getInstance();
     game->attach(this);
-    qDebug()<<"Depois de inicia jogo em gameView";
     setController(controller);
-    qDebug()<<"Depois de setController em gameView";
-    qDebug()<<controller;
     controller->addView(this);
-    qDebug()<<"Depois de addView em gameView";
 
     scene = new QGraphicsScene();
     scene->setSceneRect(0.0,0.0,600.0,600.0);
     this->setScene(scene);
-
-    qDebug()<<"gameView construtor";
 }
 
 void gameView::setController(Controller *ctr)
@@ -30,7 +24,6 @@ void gameView::updateView(QString changeId)
     if(changeId == "Begin" || changeId == "Moved" || changeId == "Captura" || "BadMove")
     {
         updateTab(game->getTab());
-        qDebug()<<scene->items(Qt::AscendingOrder).size();
     }
 }
 
@@ -69,7 +62,6 @@ void gameView::updateTab(Tabuleiro *tab)
             }
         }
     }
-    update();
 }
 
 Controller *gameView::getController()

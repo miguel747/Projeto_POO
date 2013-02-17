@@ -2,6 +2,7 @@
 
 Pecas::Pecas(){
 	this->ehDama = false;
+    this->cor = false;
 }
 
 Pecas::Pecas(bool x){
