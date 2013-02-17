@@ -9,7 +9,7 @@
 #include "ErroSave.h"
 #include "Persistencia.h"
 #include "arqtexto.h"
-#include "tests/newtestclass.h"
+#include "newtestclass.h"
 
 using namespace std
 

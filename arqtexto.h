@@ -12,7 +12,7 @@
 #include "Pecas.h"
 #include "ErroSave.h"
 #include<iostream>
-#include <fstream.h>
+#include <fstream>
 
 using namespace std;
 

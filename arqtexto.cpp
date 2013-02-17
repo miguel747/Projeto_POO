@@ -5,8 +5,6 @@
  * Created on 11 de Fevereiro de 2013, 19:57
  */
 
-#include <fstream.h>
-
 #include "arqtexto.h"
 
 arqtexto::arqtexto() {
