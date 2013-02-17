@@ -22,16 +22,12 @@ float Casa::Distancia(Casa outra){
 	return dist;
 }
 
-void Casa::SetPedras(Pecas* outra) /*throw(string)*/{
+void Casa::SetPedras(Pecas* outra) {
 		this->pedra = outra;
 }
 
 void Casa::SetX(int x){
-  //	if(this->pedra != NULL)
-//		throw "ErroSP";
-//	else
   this->x=x;
-    //this->y=y;
 }
 
 void Casa::SetY(int y){

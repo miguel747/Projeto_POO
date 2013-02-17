@@ -6,7 +6,7 @@ class Casa
 {
     private:
         int x,y;
-        bool cor;//true eh branca e false eh preta
+        bool cor;
         Pecas* pedra;
     public:
         Casa();
@@ -14,8 +14,8 @@ class Casa
         int GetX() const{return x;} int GetY() const{return y;} bool GetCor() const{return cor;}
         Pecas* GetPedra() const{return pedra;}
         void SetX(int); void SetY(int);
-        float Distancia(Casa outra);//distancia entre duas casas quaisquer
-        void SetPedras(Pecas* outra); //throw(string);//insere uma referida pedra na correpondente casa caso esteja vazia
+        float Distancia(Casa outra);
+        void SetPedras(Pecas* outra);
 };
 
-#endif // CASA_H
+#endif
