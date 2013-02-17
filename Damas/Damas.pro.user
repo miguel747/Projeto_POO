@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by Qt Creator 2.6.0, 2013-02-17T13:22:37. -->
+=======
+<<<<<<< HEAD
+<!-- Written by Qt Creator 2.6.0, 2013-02-17T12:57:31. -->
+=======
+<!-- Written by Qt Creator 2.6.0, 2013-02-13T17:17:44. -->
+>>>>>>> parent of 609a960... ultima versao
+>>>>>>> 562adde0a666d6d564b531fc3a42fdcb94b11d14
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
