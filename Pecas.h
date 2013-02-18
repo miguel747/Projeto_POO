@@ -2,6 +2,7 @@
 #define PECAS_H
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 

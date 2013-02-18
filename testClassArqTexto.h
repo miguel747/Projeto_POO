@@ -9,7 +9,7 @@
 #define	NEWTESTCLASS_H
 
 #include <cppunit/extensions/HelperMacros.h>
-#include "C:\Users\Laís\Unb\POO\gameof life\persistencia\arqtexto.h"
+#include "arqtexto.h"
 #include "jogo.h"
 
 class arqtextTeste : public CPPUNIT_NS::TestFixture {

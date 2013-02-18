@@ -10,11 +10,11 @@
 Persistencia::Persistencia() {
 }
 
-void Persistencia::save () {
+void Persistencia::Salvar () {
     
 }
 
-void Persistencia::find () {
+void Persistencia::Carregar () {
     
 }
 

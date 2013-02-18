@@ -87,8 +87,8 @@ jogo* arqtexto::Carregar(void) {
                 persistencia>>dama;
 
                 if(this->CorPedra(linha,coluna,Partida)!=cor || this->StatusPedra(linha,coluna,Partida)!=dama){
-                    pedra->cor = cor;
-                    pedra->ehDama = dama;
+                    Pecas *pedra = new Pecas(cor);
+                    //pedra->ehDama = dama;
                     Partida->GetDadosCasa(linha,coluna)->SetPedras(pedra);
                 }
             } 

@@ -10,6 +10,7 @@
 
 #include "jogo.h"
 #include "Pecas.h"
+#include "Casa.h"
 #include "ErroSave.h"
 #include<iostream>
 #include <fstream>
